@@ -45,6 +45,36 @@ public:
     }
 };
 
+
+class HardcopyBook : public Book {
+private:
+    string shelfNumber;
+
+public:
+    void setShelfNumber(string shelf) {
+        shelfNumber = shelf;
+    }
+
+    void displayBookDetails() {
+        Book::displayBookDetails();
+        cout << "Shelf Number: " << shelfNumber << endl;
+        cout << "-----------------------------" << endl;
+    }
+};: public Book {
+private:
+    string shelfNumber;
+
+public:
+    void setShelfNumber(string shelf) {
+        shelfNumber = shelf;
+    }
+
+    void displayBookDetails() {
+        Book::displayBookDetails();
+        cout << "Shelf Number: " << shelfNumber << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
 class LibrarySystem {
 private:
     Book books[5];
