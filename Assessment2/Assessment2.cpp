@@ -45,7 +45,7 @@ public:
     }
 };
 
-
+// Phase 2 class: Hardcopy book inherits from Book
 class HardcopyBook : public Book {
 private:
     string shelfNumber;
@@ -55,26 +55,30 @@ public:
         shelfNumber = shelf;
     }
 
-    void displayBookDetails() {
-        Book::displayBookDetails();
-        cout << "Shelf Number: " << shelfNumber << endl;
-        cout << "-----------------------------" << endl;
-    }
-};: public Book {
-private:
-    string shelfNumber;
-
-public:
-    void setShelfNumber(string shelf) {
-        shelfNumber = shelf;
-    }
-
-    void displayBookDetails() {
+    void displayHardcopyBookDetails() {
         Book::displayBookDetails();
         cout << "Shelf Number: " << shelfNumber << endl;
         cout << "-----------------------------" << endl;
     }
 };
+
+// Phase 2 class: E-book inherits from Book
+class EBook : public Book {
+private:
+    string licenseExpiryDate;
+
+public:
+    void setLicenseExpiryDate(string date) {
+        licenseExpiryDate = date;
+    }
+
+    void displayEBookDetails() {
+        Book::displayBookDetails();
+        cout << "License Expiry Date: " << licenseExpiryDate << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
 class LibrarySystem {
 private:
     Book books[5];
@@ -166,13 +170,3 @@ int main() {
 
     return 0;
 }
-
-
-///pruebas de cambiios///
-
-
-
-///sadsadsad
-
-
-////commit//
