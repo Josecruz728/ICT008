@@ -3,9 +3,6 @@
 using namespace std;
 
 class Book {
-
-  
-
 private:
     string title;
     string author;
@@ -48,6 +45,7 @@ public:
     }
 };
 
+// Phase 2 class: Hardcopy book inherits from Book
 class HardcopyBook : public Book {
 private:
     string shelfNumber;
@@ -57,28 +55,14 @@ public:
         shelfNumber = shelf;
     }
 
-    void displayBookDetails() {
-        Book::displayBookDetails();
-        cout << "Shelf Number: " << shelfNumber << endl;
-        cout << "-----------------------------" << endl;
-    }
-};: public Book {
-private:
-    string shelfNumber;
-
-public:
-    void setShelfNumber(string shelf) {
-        shelfNumber = shelf;
-    }
-
-    void displayBookDetails() {
+    void displayHardcopyBookDetails() {
         Book::displayBookDetails();
         cout << "Shelf Number: " << shelfNumber << endl;
         cout << "-----------------------------" << endl;
     }
 };
 
-/// add class Ebook///
+// Phase 2 class: E-book inherits from Book
 class EBook : public Book {
 private:
     string licenseExpiryDate;
@@ -88,7 +72,7 @@ public:
         licenseExpiryDate = date;
     }
 
-    void displayBookDetails() {
+    void displayEBookDetails() {
         Book::displayBookDetails();
         cout << "License Expiry Date: " << licenseExpiryDate << endl;
         cout << "-----------------------------" << endl;
@@ -186,7 +170,3 @@ int main() {
 
     return 0;
 }
-
-
-///pruebas de cambiios///
-
