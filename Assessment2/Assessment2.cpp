@@ -3,6 +3,9 @@
 using namespace std;
 
 class Book {
+
+  
+
 private:
     string title;
     string author;
@@ -42,6 +45,53 @@ public:
 
     string getISBN() {
         return isbn;
+    }
+};
+
+class HardcopyBook : public Book {
+private:
+    string shelfNumber;
+
+public:
+    void setShelfNumber(string shelf) {
+        shelfNumber = shelf;
+    }
+
+    void displayBookDetails() {
+        Book::displayBookDetails();
+        cout << "Shelf Number: " << shelfNumber << endl;
+        cout << "-----------------------------" << endl;
+    }
+};: public Book {
+private:
+    string shelfNumber;
+
+public:
+    void setShelfNumber(string shelf) {
+        shelfNumber = shelf;
+    }
+
+    void displayBookDetails() {
+        Book::displayBookDetails();
+        cout << "Shelf Number: " << shelfNumber << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
+/// add class Ebook///
+class EBook : public Book {
+private:
+    string licenseExpiryDate;
+
+public:
+    void setLicenseExpiryDate(string date) {
+        licenseExpiryDate = date;
+    }
+
+    void displayBookDetails() {
+        Book::displayBookDetails();
+        cout << "License Expiry Date: " << licenseExpiryDate << endl;
+        cout << "-----------------------------" << endl;
     }
 };
 
@@ -140,9 +190,3 @@ int main() {
 
 ///pruebas de cambiios///
 
-
-
-///sadsadsad
-
-
-////commit//
