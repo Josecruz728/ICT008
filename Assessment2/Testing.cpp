@@ -45,6 +45,40 @@ public:
     }
 };
 
+// Phase 2 class: HardcopyBook inherits from Book
+class HardcopyBook : public Book {
+private:
+    string shelfNumber;
+
+public:
+    void setShelfNumber(string shelf) {
+        shelfNumber = shelf;
+    }
+
+    void displayHardcopyBookDetails() {
+        Book::displayBookDetails();
+        cout << "Shelf Number: " << shelfNumber << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
+// Phase 2 class: EBook inherits from Book
+class EBook : public Book {
+private:
+    string licenseExpiryDate;
+
+public:
+    void setLicenseExpiryDate(string date) {
+        licenseExpiryDate = date;
+    }
+
+    void displayEBookDetails() {
+        Book::displayBookDetails();
+        cout << "License Expiry Date: " << licenseExpiryDate << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
 void displayArray(Book books[], int size) {
     for (int i = 0; i < size; i++) {
         books[i].displayBookDetails();
@@ -52,8 +86,8 @@ void displayArray(Book books[], int size) {
 }
 
 int main() {
-    cout << "TEST APPLICATION - BOOK CLASS AND SORTING FUNCTION" << endl;
-    cout << "==================================================" << endl;
+    cout << "TEST APPLICATION - BOOK CLASS, PHASE 2 CLASSES AND SORTING FUNCTION" << endl;
+    cout << "===================================================================" << endl;
 
     cout << "\n1. Correct Book Information Initialisation" << endl;
     cout << "==================================================" << endl;
@@ -73,7 +107,6 @@ int main() {
 
     Book wrongBook1, wrongBook2, wrongBook3;
 
-    // These records contain incorrect or invalid information for testing purposes.
     wrongBook1.setBookDetails("", "Peter Brown", "ABC", true, "wrong-date");
     wrongBook2.setBookDetails("Invalid Book", "", "10X", false, "35/15/2024");
     wrongBook3.setBookDetails("No ISBN Book", "Unknown Author", "", true, "2024");
@@ -82,7 +115,23 @@ int main() {
     wrongBook2.displayBookDetails();
     wrongBook3.displayBookDetails();
 
-    cout << "\n3. Sorting Test - Ascending Order Array" << endl;
+    cout << "\n3. Phase 2 Class Test - HardcopyBook" << endl;
+    cout << "==================================================" << endl;
+
+    HardcopyBook hardcopyBook;
+    hardcopyBook.setBookDetails("Clean Code", "Robert Martin", "201", true, "01/04/2026");
+    hardcopyBook.setShelfNumber("A-12");
+    hardcopyBook.displayHardcopyBookDetails();
+
+    cout << "\n4. Phase 2 Class Test - EBook" << endl;
+    cout << "==================================================" << endl;
+
+    EBook ebook;
+    ebook.setBookDetails("Digital Systems", "Alan Brown", "202", true, "02/04/2026");
+    ebook.setLicenseExpiryDate("31/12/2026");
+    ebook.displayEBookDetails();
+
+    cout << "\n5. Sorting Test - Ascending Order Array" << endl;
     cout << "==================================================" << endl;
 
     Book ascendingBooks[3];
@@ -98,7 +147,7 @@ int main() {
     cout << "\nAfter Sorting:" << endl;
     displayArray(ascendingBooks, 3);
 
-    cout << "\n4. Sorting Test - Descending Order Array" << endl;
+    cout << "\n6. Sorting Test - Descending Order Array" << endl;
     cout << "==================================================" << endl;
 
     Book descendingBooks[3];
@@ -114,7 +163,7 @@ int main() {
     cout << "\nAfter Sorting:" << endl;
     displayArray(descendingBooks, 3);
 
-    cout << "\n5. Sorting Test - Mixed Order Array" << endl;
+    cout << "\n7. Sorting Test - Mixed Order Array" << endl;
     cout << "==================================================" << endl;
 
     Book mixedBooks[3];
@@ -134,8 +183,3 @@ int main() {
 
     return 0;
 }
-
-////testing that the Github repository is updated -----Done Jose Cruz
-
-
-////verifying that the Github repository is public and can be opened from another PC or device ---- Done Jose Cruz
