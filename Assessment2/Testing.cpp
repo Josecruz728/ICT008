@@ -25,7 +25,6 @@ public:
         cout << "ISBN: " << isbn << endl;
         cout << "Availability: " << (availability ? "Available" : "Borrowed") << endl;
         cout << "Date Added: " << dateAdd << endl;
-        cout << "-----------------------------" << endl;
     }
 
     string getISBN() {
@@ -45,7 +44,7 @@ public:
     }
 };
 
-// Phase 2 class: HardcopyBook inherits from Book
+// 🔹 HardcopyBook (Inheritance)
 class HardcopyBook : public Book {
 private:
     string shelfNumber;
@@ -55,14 +54,14 @@ public:
         shelfNumber = shelf;
     }
 
-    void displayHardcopyBookDetails() {
+    void displayBookDetails() {
         Book::displayBookDetails();
         cout << "Shelf Number: " << shelfNumber << endl;
         cout << "-----------------------------" << endl;
     }
 };
 
-// Phase 2 class: EBook inherits from Book
+// 🔹 EBook (Inheritance)
 class EBook : public Book {
 private:
     string licenseExpiryDate;
@@ -72,7 +71,7 @@ public:
         licenseExpiryDate = date;
     }
 
-    void displayEBookDetails() {
+    void displayBookDetails() {
         Book::displayBookDetails();
         cout << "License Expiry Date: " << licenseExpiryDate << endl;
         cout << "-----------------------------" << endl;
@@ -82,13 +81,16 @@ public:
 void displayArray(Book books[], int size) {
     for (int i = 0; i < size; i++) {
         books[i].displayBookDetails();
+        cout << "-----------------------------" << endl;
     }
 }
 
 int main() {
-    cout << "TEST APPLICATION - BOOK CLASS, PHASE 2 CLASSES AND SORTING FUNCTION" << endl;
-    cout << "===================================================================" << endl;
 
+    cout << "TEST APPLICATION - BOOK SYSTEM WITH INHERITANCE AND SORTING" << endl;
+    cout << "============================================================" << endl;
+
+    // 🔹 1. Correct Data
     cout << "\n1. Correct Book Information Initialisation" << endl;
     cout << "==================================================" << endl;
 
@@ -98,10 +100,11 @@ int main() {
     book2.setBookDetails("Data Structures", "Jane Doe", "102", true, "05/03/2023");
     book3.setBookDetails("Algorithms", "Mark Lee", "103", false, "18/07/2022");
 
-    book1.displayBookDetails();
-    book2.displayBookDetails();
-    book3.displayBookDetails();
+    book1.displayBookDetails(); cout << "-----------------------------" << endl;
+    book2.displayBookDetails(); cout << "-----------------------------" << endl;
+    book3.displayBookDetails(); cout << "-----------------------------" << endl;
 
+    // 🔹 2. Incorrect Data
     cout << "\n2. Incorrect Book Information Initialisation" << endl;
     cout << "==================================================" << endl;
 
@@ -111,26 +114,28 @@ int main() {
     wrongBook2.setBookDetails("Invalid Book", "", "10X", false, "35/15/2024");
     wrongBook3.setBookDetails("No ISBN Book", "Unknown Author", "", true, "2024");
 
-    wrongBook1.displayBookDetails();
-    wrongBook2.displayBookDetails();
-    wrongBook3.displayBookDetails();
+    wrongBook1.displayBookDetails(); cout << "-----------------------------" << endl;
+    wrongBook2.displayBookDetails(); cout << "-----------------------------" << endl;
+    wrongBook3.displayBookDetails(); cout << "-----------------------------" << endl;
 
-    cout << "\n3. Phase 2 Class Test - HardcopyBook" << endl;
+    // 🔥 3. Inheritance Testing (CLAVE PARA TU NOTA)
+    cout << "\n3. Inheritance Testing - HardcopyBook" << endl;
     cout << "==================================================" << endl;
 
-    HardcopyBook hardcopyBook;
-    hardcopyBook.setBookDetails("Clean Code", "Robert Martin", "201", true, "01/04/2026");
-    hardcopyBook.setShelfNumber("A-12");
-    hardcopyBook.displayHardcopyBookDetails();
+    HardcopyBook hardcopy;
+    hardcopy.setBookDetails("Clean Code", "Robert C. Martin", "201", true, "10/02/2024");
+    hardcopy.setShelfNumber("B12");
+    hardcopy.displayBookDetails();
 
-    cout << "\n4. Phase 2 Class Test - EBook" << endl;
+    cout << "\n4. Inheritance Testing - EBook" << endl;
     cout << "==================================================" << endl;
 
     EBook ebook;
-    ebook.setBookDetails("Digital Systems", "Alan Brown", "202", true, "02/04/2026");
-    ebook.setLicenseExpiryDate("31/12/2026");
-    ebook.displayEBookDetails();
+    ebook.setBookDetails("Digital Transformation", "Thomas Siebel", "202", true, "22/08/2023");
+    ebook.setLicenseExpiryDate("30/12/2026");
+    ebook.displayBookDetails();
 
+    // 🔹 5. Sorting Tests
     cout << "\n5. Sorting Test - Ascending Order Array" << endl;
     cout << "==================================================" << endl;
 
